@@ -9,12 +9,14 @@ class CounterWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final count = ref.read(counterProvider);
-    return ElevatedButton(
-      onPressed: () {
-        count.increment();
-      },
-      child: const Text(
-        "Increment",
+    return Center(
+      child: ElevatedButton(
+        onPressed: () {
+          count.increment();
+        },
+        child: const Text(
+          "Increment",
+        ),
       ),
     );
   }

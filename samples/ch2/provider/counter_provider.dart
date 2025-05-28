@@ -1,15 +1,21 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../utils.dart';
 
 class Counter {
   int counterValue = 0;
 
-  increment() {
+  void increment() {
     counterValue++;
-    if (kDebugMode) {
-      print(counterValue);
-    }
+    myLog(counterValue.toString());
+  }
+
+  void decrement() {
+    counterValue--;
+    myLog(counterValue.toString());
   }
 }
 
-final counterProvider = Provider((ref) => Counter());
+final counterProvider = Provider<Counter>((ref) {
+  return Counter();
+});
